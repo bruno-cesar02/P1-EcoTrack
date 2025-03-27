@@ -12,15 +12,15 @@ O **EcoTrack** é um projeto de sustentabilidade que ajuda usuários a monitorar
 ## **🚀 Tecnologias Utilizadas**  
 
 ### **Front-end**  
-- **HTML5** (Estrutura)  
-- **CSS3** (Estilização)  
-- **JavaScript** (Interatividade)  
+- **HTML5** 
+- **CSS3** 
+- **JavaScript** 
 
 ### **Back-end**  
-- **Python** + **Flask** (Servidor e API)  
+- **Python** + **Flask**   
 
 ### **Banco de Dados**  
-- **MySQL** (Armazenamento de dados de usuários e métricas)  
+- **MySQL**   
 
 ---  
 
@@ -28,30 +28,8 @@ O **EcoTrack** é um projeto de sustentabilidade que ajuda usuários a monitorar
 
 ### **Pré-requisitos**  
 - Python 3.x  
-- MySQL instalado  
-- Navegador moderno (Chrome, Firefox, Edge)  
-
-### **Passos para Configuração**  
-
-1. **Clone o repositório**  
-   ```bash  
-   git clone https://github.com/seu-usuario/ecotrack.git  
-   cd ecotrack  
-   ```  
-
-2. **Configure o ambiente Python**  
-   ```bash  
-   python -m venv venv  
-   source venv/bin/activate  # Linux/Mac  
-   venv\Scripts\activate     # Windows  
-   pip install -r requirements.txt  
-   ```  
-
-
-3. **Inicie o servidor Flask**  
-   ```bash  
-   python app.py  
-   ```  
+  
+- Navegador moderno (Chrome, Firefox, Edge) 
 
 **📄 Licença**  
 MIT License - Consulte o arquivo `LICENSE` para mais detalhes.  
