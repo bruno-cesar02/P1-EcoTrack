@@ -24,12 +24,7 @@ O **EcoTrack** é um projeto de sustentabilidade que ajuda usuários a monitorar
 
 ---  
 
-## **🔧 Como Executar o Projeto?**  
 
-### **Pré-requisitos**  
-- Python 3.x  
-  
-- Navegador moderno (Chrome, Firefox, Edge) 
 
 **📄 Licença**  
 MIT License - Consulte o arquivo `LICENSE` para mais detalhes.  
