@@ -22,12 +22,5 @@ O **EcoTrack** é um projeto de sustentabilidade que ajuda usuários a monitorar
 ### **Banco de Dados**  
 - **MySQL**   
 
----  
-
-
-
-**📄 Licença**  
-MIT License - Consulte o arquivo `LICENSE` para mais detalhes.  
-
----  
+---   
 
