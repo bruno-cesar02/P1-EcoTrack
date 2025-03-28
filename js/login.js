@@ -1,3 +1,5 @@
+
+//faz a animacao nos inputs
 document.addEventListener("DOMContentLoaded", function () {
     const inputs = document.querySelectorAll(".input-group input");
 
@@ -13,3 +15,21 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+
+//manda pra tela de dashboard quando a pessoa clica no botao "Entrar"//
+const form = document.getElementById("loginForm");
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const email = document.getElementById("email").value;
+            const senha = document.getElementById("senha").value;
+
+            if (email && senha) {
+                // Redireciona para a página de dashboard
+                window.location.href = "dashboard.html";
+            } else {
+                alert("Preencha todos os campos!");
+            }
+        });

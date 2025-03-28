@@ -16,3 +16,26 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+//manda pra tela de dashboard quando a pessoa clica no botao "Entrar"//
+const form = document.getElementById("cadastroForm");
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const nome = document.getElementById("nome").value;
+            const email = document.getElementById("email").value;
+            const senha = document.getElementById("senha").value;
+            const confirmsenha = document.getElementById("confirmar-senha").value;
+
+            if (nome && email && senha && confirmsenha) {
+                if (senha === confirmsenha) {
+                    // Redireciona para a página de dashboard
+                    window.location.href = "dashboard.html";
+                } else {
+                    alert("As senhas não coincidem!");
+                }
+            } else {
+                alert("Preencha todos os campos!");
+            }
+        });
