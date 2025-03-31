@@ -19,19 +19,15 @@
       <h1>EcoTrack</h1>
     </a>
     </div>
-    
-    
-      <!-- Header para usuário logado -->
       <nav>
         <ul>
-          <li><a href="/html/dashboard.html">Dashboard</a></li>
-          <li><a href="/html/registro.html" class="active">Registrar</a></li>
-          <li><a href="/html/historico.html">Histórico</a></li>
-          <li><a href="/html/sugestoes.html">Sugestões</a></li>
-          <li><a href="/html/index.html" class="btn-primary">Logout</a></li>
+          <li><a href="/dashboard.html">Dashboard</a></li>
+          <li><a href="/registro.html" class="active">Registrar</a></li>
+          <li><a href="/historico.html">Histórico</a></li>
+          <li><a href="/sugestoes.html">Sugestões</a></li>
+          <li><a href="/index.html" class="btn-primary">Logout</a></li>
         </ul>
       </nav>
-      
   </header>
 
   <!-- Conteúdo Principal -->
@@ -41,24 +37,16 @@
       <p>Preencha os campos abaixo para registrar seu consumo diário.</p>
       <form id="registrarForm">
         <div class="input-group">
-          <label for="data">Data</label>
-          <input type="date" id="data" name="data" required>
+          <label for="agua">Consumo de Água (litros)</label>
+          <input type="number" id="agua" name="agua" placeholder="Ex.: 180" min="0" required>
         </div>
         <div class="input-group">
-            <label for="agua">Consumo de Água (litros)</label>
-            <input type="number" id="agua" name="agua" placeholder="Ex.: 180" min="0" required>
+          <label for="energia">Consumo de Energia (kWh)</label>
+          <input type="number" id="energia" name="energia" placeholder="Ex.: 6.5" step="0.1" min="0" required>
         </div>
-            <div class="input-group">
-            <label for="energia">Consumo de Energia (kWh)</label>
-            <input type="number" id="energia" name="energia" placeholder="Ex.: 6.5" step="0.1" min="0" required>
-        </div>
-            <div class="input-group">
-            <label for="residuos">Resíduos Gerados (kg)</label>
-            <input type="number" id="residuos" name="residuos" placeholder="Ex.: 1.5" step="0.1" min="0" required>
-        </div>
-            <div class="input-group">
-            <label for="percentual">Percentual de Resíduos Reciclados (%)</label>
-            <input type="number" id="percentual" name="percentual" placeholder="Ex.: 60" min="0" max="100" required>
+        <div class="input-group">
+          <label for="residuos">Resíduos Gerados (kg)</label>
+          <input type="number" id="residuos" name="residuos" placeholder="Ex.: 1.5" step="0.1" min="0" required>
         </div>
         <div class="input-group">
           <label for="transporte">Meio de Transporte Utilizado</label>
