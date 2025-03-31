@@ -26,6 +26,7 @@ document.getElementById('overlay').addEventListener('click', (event) => {
     }
 });
 
+// Reseta o localStorage
 document.addEventListener('DOMContentLoaded', function() {
     localStorage.removeItem('registroData');
 });
