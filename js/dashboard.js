@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var sEnergia = Math.min(energia / 10, 1);
     var sResiduos = Math.min(residuos / 2, 1);
     
-    // Mapeamento simples para o transporte
+    // Mapeamento para o transporte
     var sTransporte = 1.0;
     if (transporte === "caminhada") {
       sTransporte = 0.0;
@@ -86,7 +86,6 @@ document.addEventListener('DOMContentLoaded', function () {
       cards[1].querySelector('p').textContent = energia + " kWh";
       cards[2].querySelector('p').textContent = residuos + " kg";
       
-      // Mapeamento para tornar o transporte mais legível
       var transporteMap = {
         "transporte_publico": "Transporte Público",
         "bicicleta": "Bicicleta",
