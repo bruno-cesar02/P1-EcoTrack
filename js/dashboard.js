@@ -33,23 +33,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Configuração do Modal de Ajuda
-  var helpIcon = document.getElementById('helpIcon');
-  var helpModal = document.getElementById('helpModal');
-  var closeHelpModal = document.getElementById('closeHelpModal');
-
-  helpIcon.addEventListener('click', function() {
-    helpModal.style.display = 'block';
-  });
-  closeHelpModal.addEventListener('click', function() {
-    helpModal.style.display = 'none';
-  });
-  window.addEventListener('click', function(event) {
-    if (event.target === helpModal) {
-      helpModal.style.display = 'none';
-    }
-  });
-
   // Atualiza a classificação e os indicadores recentes com base nos dados registrados
   var classificacaoElement = document.querySelector('.classificacao');
   if (!registroData) {

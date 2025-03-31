@@ -27,7 +27,6 @@ const form = document.getElementById("loginForm");
             const senha = document.getElementById("senha").value;
 
             if (email && senha) {
-                // Redireciona para a página de dashboard
                 window.location.href = "dashboard.html";
             } else {
                 alert("Preencha todos os campos!");

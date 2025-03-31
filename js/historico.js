@@ -65,12 +65,10 @@ document.addEventListener('DOMContentLoaded', function() {
       tabela.appendChild(elemento.cloneNode(true));
     });
     
-    // Mostrar mensagem se não houver registros
     document.getElementById('semRegistros').style.display = 
       registrosFiltrados.length === 0 ? 'block' : 'none';
   }
   
-  // Configurar eventos
   document.getElementById('filtroForm').addEventListener('submit', aplicarFiltros);
   aplicarFiltros();
 });
