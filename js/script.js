@@ -25,3 +25,7 @@ document.getElementById('overlay').addEventListener('click', (event) => {
         closeImage();
     }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    localStorage.removeItem('registroData');
+});
