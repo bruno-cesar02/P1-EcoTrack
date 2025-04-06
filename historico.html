@@ -3,12 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
   <title>EcoTrack - Histórico</title>
   <link rel="icon" type="image/png" href="/img/index/icone-planeta.png">
-
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap">
-
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/historico.css">
 </head>
@@ -16,29 +13,28 @@
   <header>
     <div class="logo">
       <a href="/" class="logo-link">
-      <img src="/img/index/icone-planeta.png" alt="Ícone de planeta" class="logo-icon">
-      <h1>EcoTrack</h1>
-    </a>
+        <img src="/img/index/icone-planeta.png" alt="Ícone de planeta" class="logo-icon">
+        <h1>EcoTrack</h1>
+      </a>
     </div>
-      <nav>
-        <ul>
-          <li><a href="/dashboard.html">Dashboard</a></li>
-          <li><a href="/registro.html">Registrar</a></li>
-          <li><a href="/historico.html" class="active">Histórico</a></li>
-          <li><a href="/sugestoes.html">Sugestões</a></li>
-          <li><a href="/index.html" class="btn-primary">Logout</a></li>
-        </ul>
-      </nav>
+    <nav>
+      <ul>
+        <li><a href="/dashboard.html">Dashboard</a></li>
+        <li><a href="/registro.html">Registrar</a></li>
+        <li><a href="/historico.html" class="active">Histórico</a></li>
+        <li><a href="/sugestoes.html">Sugestões</a></li>
+        <li><a href="/index.html" class="btn-primary">Logout</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- Conteúdo Principal -->
+  <!-- Conteúdo Principal: Histórico de Registros com filtros e tabela -->
   <main>
-    <!-- Container principal que engloba filtros e tabela -->
     <section class="historico-container">
       <h2>Histórico de Registros</h2>
       <p>Confira seus registros diários e acompanhe a evolução do seu impacto ambiental.</p>
 
-      <!-- Área de Filtros -->
+      <!-- Filtros para busca de registros por data e critérios -->
       <form id="filtroForm" class="filtros-container">
         <div class="filter-item">
           <label for="dataInicio">Data Inicial</label>
@@ -62,7 +58,7 @@
         <button type="submit" class="btn-primary">Aplicar Filtros</button>
       </form>
 
-      <!-- Tabela de Registros -->
+      <!-- Tabela com os registros históricos -->
       <div class="tabela-container">
         <table>
           <thead>
@@ -73,69 +69,97 @@
               <th>Resíduos (kg)</th>
               <th>Transporte</th>
               <th>Classificação</th>
+              <th>Ações</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr data-id="0">
               <td>2025-03-24</td>
               <td>180</td>
               <td>6,5</td>
               <td>1,5</td>
               <td>Bicicleta</td>
               <td>Médio Impacto</td>
+              <td>
+                <button class="btn-edit">Editar</button>
+                <button class="btn-delete">Apagar</button>
+              </td>
             </tr>
-            <tr>
+            <tr data-id="1">
               <td>2025-03-23</td>
               <td>200</td>
               <td>7,0</td>
               <td>2,0</td>
               <td>Transporte Público</td>
               <td>Alto Impacto</td>
+              <td>
+                <button class="btn-edit">Editar</button>
+                <button class="btn-delete">Apagar</button>
+              </td>
             </tr>
-            
-            <tr>
+            <tr data-id="2">
               <td>2025-03-25</td>
               <td>150</td>
               <td>5,8</td>
               <td>1,2</td>
               <td>Bicicleta</td>
               <td>Baixo Impacto</td>
+              <td>
+                <button class="btn-edit">Editar</button>
+                <button class="btn-delete">Apagar</button>
+              </td>
             </tr>
-            <tr>
+            <tr data-id="3">
               <td>2025-03-24</td>
               <td>180</td>
               <td>6,5</td>
               <td>1,5</td>
               <td>Bicicleta</td>
               <td>Médio Impacto</td>
+              <td>
+                <button class="btn-edit">Editar</button>
+                <button class="btn-delete">Apagar</button>
+              </td>
             </tr>
-            <tr>
+            <tr data-id="4">
               <td>2025-03-23</td>
               <td>200</td>
               <td>7,0</td>
               <td>2,0</td>
               <td>Transporte Público</td>
               <td>Alto Impacto</td>
+              <td>
+                <button class="btn-edit">Editar</button>
+                <button class="btn-delete">Apagar</button>
+              </td>
             </tr>
-            <tr>
+            <tr data-id="5">
               <td>2025-03-22</td>
               <td>220</td>
               <td>7,5</td>
               <td>2,5</td>
               <td>Carro</td>
               <td>Alto Impacto</td>
+              <td>
+                <button class="btn-edit">Editar</button>
+                <button class="btn-delete">Apagar</button>
+              </td>
             </tr>
-            <tr>
+            <tr data-id="6">
               <td>2025-03-21</td>
               <td>160</td>
               <td>6,0</td>
               <td>1,0</td>
               <td>Transporte Público</td>
               <td>Baixo Impacto</td>
+              <td>
+                <button class="btn-edit">Editar</button>
+                <button class="btn-delete">Apagar</button>
+              </td>
             </tr>
           </tbody>
         </table>
-        <!-- Mensagem caso não haja registros -->
+        <!-- Mensagem exibida caso não haja registros -->
         <div id="semRegistros" class="sem-registros" style="display: none;">
           <p>Nenhum registro encontrado. Comece a registrar seus dados diários!</p>
         </div>
@@ -143,7 +167,6 @@
     </section>
   </main>
 
-  <!-- Rodapé -->
   <footer>
     <p>&copy; 2025 EcoTrack. Todos os direitos reservados.</p>
   </footer>

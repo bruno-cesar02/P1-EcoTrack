@@ -34,9 +34,12 @@
   </style>
 </head>
 <body>
+  <!-- Container principal para exibir a mensagem de erro -->
   <div class="error-container">
     <h1>Ops... Algo deu errado!</h1>
+    <!-- Exibe o código e nome do erro dinamicamente -->
     <p>Ocorreu um erro: <strong>{{ error_code }} - {{ error_name }}</strong></p>
+    <!-- Exibe a descrição do erro dinamicamente -->
     <p>{{ error_description }}</p>
     <p>Por favor, volte e tente novamente.</p>
   </div>

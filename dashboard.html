@@ -3,39 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>EcoTrack - Dashboard</title>
   <link rel="icon" type="image/png" href="/img/index/icone-planeta.png">
-
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap">
-
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/dashboard.css">
-
-  <!-- Biblioteca Chart.js para o gráfico -->
+  <!-- Biblioteca Chart.js para exibir o gráfico -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <header>
     <div class="logo">
       <a href="/" class="logo-link">
-      <img src="/img/index/icone-planeta.png" alt="Ícone de planeta" class="logo-icon">
-      <h1>EcoTrack</h1>
-    </a>
+        <img src="/img/index/icone-planeta.png" alt="Ícone de planeta" class="logo-icon">
+        <h1>EcoTrack</h1>
+      </a>
     </div>
-      <nav>
-        <ul>
-          <li><a href="/dashboard.html" class="active">Dashboard</a></li>
-          <li><a href="/registro.html">Registrar</a></li>
-          <li><a href="/historico.html">Histórico</a></li>
-          <li><a href="/sugestoes.html">Sugestões</a></li>
-          <li><a href="/index.html" class="btn-primary">Logout</a></li>
-        </ul>
-      </nav>
+    <nav>
+      <ul>
+        <li><a href="/dashboard.html" class="active">Dashboard</a></li>
+        <li><a href="/registro.html">Registrar</a></li>
+        <li><a href="/historico.html">Histórico</a></li>
+        <li><a href="/sugestoes.html">Sugestões</a></li>
+        <li><a href="/index.html" class="btn-primary">Logout</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main>
-    <!-- Seção de Overview -->
+    <!-- Seção de Overview: exibe classificação geral e botões de acesso rápido -->
     <section class="dashboard-overview">
       <div class="overview-card">
         <h2>Sua Classificação Geral</h2>
@@ -49,7 +45,7 @@
       </div>
     </section>
 
-    <!-- Seção de Indicadores de Consumo -->
+    <!-- Seção de Indicadores: apresenta dados recentes de consumo -->
     <section class="dashboard-indicators">
       <h2>Indicadores Recentes</h2>
       <div class="indicator-grid">
@@ -76,13 +72,13 @@
       </div>
     </section>
 
-    <!-- Seção Gráfica das Métricas -->
+    <!-- Seção Gráfica: exibe a evolução das métricas com Chart.js -->
     <section class="dashboard-graph">
       <h2>Evolução das Métricas</h2>
       <canvas id="metricsChart"></canvas>
     </section>
 
-    <!-- Seção de Notificações / Alertas -->
+    <!-- Seção de Notificações: exibe alertas e mensagens importantes -->
     <section class="dashboard-notifications">
       <h2>Alertas & Notificações</h2>
       <ul>
@@ -93,7 +89,7 @@
     </section>
   </main>
 
-  <!-- Modal de Ajuda para Classificação -->
+  <!-- Modal de Ajuda: informações sobre as classificações de impacto -->
   <div id="helpModal" class="help-modal">
     <div class="help-modal-content">
       <span class="close-modal" id="closeHelpModal">&times;</span>
@@ -106,12 +102,10 @@
     </div>
   </div>
 
-  <!-- Rodapé -->
   <footer>
     <p>&copy; 2025 EcoTrack. Todos os direitos reservados.</p>
   </footer>
 
-  <!-- Script do Dashboard -->
   <script src="/js/dashboard.js"></script>
 </body>
 </html>

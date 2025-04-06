@@ -9,18 +9,12 @@ O **EcoTrack** é um projeto de sustentabilidade que ajuda usuários a monitorar
 
 ---  
 
-## **🚀 Tecnologias Utilizadas**  
+## **🚀 Tecnologias Utilizadas (Front-End)**  
 
 ### **Front-end**  
 - **HTML5** 
 - **CSS3** 
 - **JavaScript** 
-
-### **Back-end**  
-- **Python** + **Flask**   
-
-### **Banco de Dados**  
-- **MySQL**   
 
 ---   
 

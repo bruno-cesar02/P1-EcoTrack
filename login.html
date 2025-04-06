@@ -3,27 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>EcoTrack - Login</title>
     <link rel="icon" type="image/png" href="./img/index/icone-planeta.png">
-
     <link rel="stylesheet" href="./css/login.css">
 </head>
 <body>
-    <!-- Botão de voltar para Home -->
+    <!-- Botão para voltar à Home -->
     <a href="./index.html" class="home-btn">
         <img src="./img/cadastro/icone-home.webp" alt="Home">
         <span>Home</span>
     </a>
 
+    <!-- Container do formulário de login -->
     <div class="login-container">
         <div class="login-box">
+            <!-- Logo e nome da aplicação -->
             <div class="logo">
                 <img src="./img/index/icone-planeta.png" alt="Ícone Planeta">
                 <h1>EcoTrack</h1>
             </div>
             <h2>Faça login</h2>
             
+            <!-- Formulário que envia dados via POST para /login -->
             <form id="loginForm" action="/login" method="POST">
                 <div class="input-group">
                     <label for="email" class="floating-label">E-mail</label>
@@ -40,6 +41,6 @@
             <p class="cadastro-link">Não tem uma conta? <a href="./cadastro.html">Cadastre-se</a></p>
         </div>
     </div>
-    <script src="/js/login.js"></script> <!-- Chama o JavaScript -->
+    <script src="/js/login.js"></script>
 </body>
 </html>

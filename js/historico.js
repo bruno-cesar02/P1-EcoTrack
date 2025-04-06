@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const tabela = document.querySelector('table tbody');
-  const linhasOriginais = Array.from(tabela.querySelectorAll('tr'));
+  const tabelaBody = document.querySelector('table tbody');
+  const linhasOriginais = Array.from(tabelaBody.querySelectorAll('tr'));
   
-  // Armazena os dados originais (sem a coluna de recicláveis)
-  const registrosOriginais = linhasOriginais.map(linha => {
+  // Monta o array de registros com um ID único para cada linha
+  const registrosOriginais = linhasOriginais.map((linha, index) => {
     const celulas = linha.querySelectorAll('td');
     return {
-      elemento: linha,
+      id: index,
       dados: {
         data: celulas[0].textContent.trim(),
         agua: parseFloat(celulas[1].textContent),
@@ -17,8 +17,62 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     };
   });
+  
+  // Usamos uma cópia que será modificada para simular as alterações no “banco de dados”
+  let registros = [...registrosOriginais];
+  
+  // Opções permitidas para transporte
+  const transportesPermitidos = [
+    "Transporte Público",
+    "Bicicleta",
+    "Caminhada",
+    "Carro",
+    "Carro Elétrico",
+    "Carona Compartilhada"
+  ];
 
-  // Função para aplicar filtros e ordenação
+  // Função para renderizar a tabela com os registros fornecidos
+  function renderTable(registrosParaRender) {
+      tabelaBody.innerHTML = '';
+      registrosParaRender.forEach(record => {
+         const tr = document.createElement('tr');
+         tr.dataset.id = record.id;
+         
+         const tdData = document.createElement('td');
+         tdData.textContent = record.dados.data;
+         tr.appendChild(tdData);
+         
+         const tdAgua = document.createElement('td');
+         tdAgua.textContent = record.dados.agua;
+         tr.appendChild(tdAgua);
+         
+         const tdEnergia = document.createElement('td');
+         // Substitui ponto por vírgula para exibição
+         tdEnergia.textContent = record.dados.energia.toString().replace('.', ',');
+         tr.appendChild(tdEnergia);
+         
+         const tdResiduos = document.createElement('td');
+         tdResiduos.textContent = record.dados.residuos.toString().replace('.', ',');
+         tr.appendChild(tdResiduos);
+         
+         const tdTransporte = document.createElement('td');
+         tdTransporte.textContent = record.dados.transporte;
+         tr.appendChild(tdTransporte);
+         
+         const tdClassificacao = document.createElement('td');
+         tdClassificacao.textContent = record.dados.classificacao;
+         tr.appendChild(tdClassificacao);
+         
+         // Cria a célula de ações com botões de editar e apagar
+         const tdActions = document.createElement('td');
+         tdActions.innerHTML = '<button class="btn-edit">Editar</button> <button class="btn-delete">Apagar</button>';
+         tr.appendChild(tdActions);
+         
+         tabelaBody.appendChild(tr);
+      });
+  }
+
+  // Função para aplicar os filtros e ordenações (mantida a lógica original)
   function aplicarFiltros(event) {
     if (event) event.preventDefault();
     
@@ -26,9 +80,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const dataFim = document.getElementById('dataFim').value;
     const ordenarPor = document.getElementById('ordenar').value;
     
-    // Filtrar por intervalo de datas
-    let registrosFiltrados = registrosOriginais.filter(({ dados }) => {
-      const dataRegistro = new Date(dados.data);
+    let registrosFiltrados = registros.filter(record => {
+      const dataRegistro = new Date(record.dados.data);
       const filtroInicio = dataInicio ? new Date(dataInicio) : null;
       const filtroFim = dataFim ? new Date(dataFim) : null;
       
@@ -37,11 +90,9 @@ document.addEventListener('DOMContentLoaded', function() {
       return true;
     });
     
-    // Ordenar os resultados filtrados
     registrosFiltrados.sort((a, b) => {
       const dataA = new Date(a.dados.data);
       const dataB = new Date(b.dados.data);
-      
       switch(ordenarPor) {
         case 'data_asc':
           return dataA - dataB;
@@ -59,16 +110,76 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
     
-    // Atualizar a tabela
-    tabela.innerHTML = '';
-    registrosFiltrados.forEach(({ elemento }) => {
-      tabela.appendChild(elemento.cloneNode(true));
-    });
+    renderTable(registrosFiltrados);
     
     document.getElementById('semRegistros').style.display = 
       registrosFiltrados.length === 0 ? 'block' : 'none';
   }
   
   document.getElementById('filtroForm').addEventListener('submit', aplicarFiltros);
+
+  // Delegação de eventos para os botões de editar e apagar
+  tabelaBody.addEventListener('click', function(e) {
+    if (e.target.classList.contains('btn-delete')) {
+      // Função de exclusão
+      const row = e.target.closest('tr');
+      const id = parseInt(row.dataset.id);
+      if (confirm('Deseja realmente apagar este registro?')) {
+         registros = registros.filter(record => record.id !== id);
+         aplicarFiltros();
+      }
+    } else if (e.target.classList.contains('btn-edit')) {
+      // Função de edição (a data e o impacto não poderão ser editados)
+      const row = e.target.closest('tr');
+      const id = parseInt(row.dataset.id);
+      const record = registros.find(record => record.id === id);
+      if (!record) return;
+      
+      // Solicita os novos valores via prompt (simulação) com validação para números
+      const novaAguaStr = prompt('Digite o novo consumo de água (L):', record.dados.agua);
+      if (novaAguaStr === null) return;
+      const novaAgua = parseFloat(novaAguaStr);
+      if (isNaN(novaAgua) || novaAgua < 0) {
+          alert('Valor inválido para água. Deve ser um número não negativo.');
+          return;
+      }
+      
+      const novaEnergiaStr = prompt('Digite o novo consumo de energia (kWh):', record.dados.energia);
+      if (novaEnergiaStr === null) return;
+      const novaEnergia = parseFloat(novaEnergiaStr);
+      if (isNaN(novaEnergia) || novaEnergia < 0) {
+          alert('Valor inválido para energia. Deve ser um número não negativo.');
+          return;
+      }
+      
+      const novaResiduosStr = prompt('Digite a nova quantidade de resíduos (kg):', record.dados.residuos);
+      if (novaResiduosStr === null) return;
+      const novaResiduos = parseFloat(novaResiduosStr);
+      if (isNaN(novaResiduos) || novaResiduos < 0) {
+          alert('Valor inválido para resíduos. Deve ser um número não negativo.');
+          return;
+      }
+      
+      const novoTransporte = prompt(
+        'Digite o novo meio de transporte (opções: Transporte Público, Bicicleta, Caminhada, Carro, Carro Elétrico, Carona Compartilhada):',
+        record.dados.transporte
+      );
+      if (novoTransporte === null) return;
+      if (!transportesPermitidos.includes(novoTransporte)) {
+          alert('Valor inválido para transporte. Opções permitidas: ' + transportesPermitidos.join(', '));
+          return;
+      }
+      
+      // Atualiza os dados do registro (data e impacto permanecem inalterados)
+      record.dados.agua = novaAgua;
+      record.dados.energia = novaEnergia;
+      record.dados.residuos = novaResiduos;
+      record.dados.transporte = novoTransporte;
+      
+      aplicarFiltros();
+    }
+  });
+
+  // Renderização inicial da tabela
   aplicarFiltros();
 });
